@@ -2,6 +2,15 @@
 
 This is a monorepo project that includes both the [frontend](./frontend/README.md) and [backend](./backend/README.md) for the AI Shorts Video Generator. The application allows users to generate short videos using AI, with features such as video creation, preview, and export. The frontend is built with Next.js, while the backend is built with ASP.NET Core and integrates with various AI services.
 
+## Demonstration
+
+- **Dashboard**: Users can view and manage generated short videos.
+![Image of the dashboard page](./_docs/dashboard.png)
+- **Create New Video**: Users can define the video topic, style, and duration, and the app will generate the video content, audio, captions, and images using AI.
+![Image of the create new video page](./_docs/create-new.png)
+- **Video Preview & Export**: After the video is generated, users can preview it in the dialog and export it once rendered.
+![Image of the preview, export and delete video](./_docs/preview-video.png)
+
 ## Table of Contents
 
 - [Features](#features)
@@ -48,7 +57,7 @@ This is a monorepo project that includes both the [frontend](./frontend/README.m
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/yourusername/AiShortsVideoGenerator.git
+    git clone https://github.com/Karan-21/Shortify.AI.git
     cd AiShortsVideoGenerator
     ```
 
@@ -171,11 +180,4 @@ Then run:
 - **CloudinaryDotNet**: Cloudinary SDK for uploading media.
 - **Npgsql.EntityFrameworkCore.PostgreSQL**: PostgreSQL support for Entity Framework Core.
 
-## Usage
 
-- **Dashboard**: Users can view and manage generated short videos.
-![Image of the dashboard page](./_docs/dashboard.png)
-- **Create New Video**: Users can define the video topic, style, and duration, and the app will generate the video content, audio, captions, and images using AI.
-![Image of the create new video page](./_docs/create-new.png)
-- **Video Preview & Export**: After the video is generated, users can preview it in the dialog and export it once rendered.
-![Image of the preview, export and delete video](./_docs/preview-video.png)
