@@ -1,0 +1,102 @@
+@AiShortsGenerator_LocalAddress = http://localhost:5211
+@AiShortsGenerator_DockerAddress = http://localhost:8080
+
+### Test the Gemini API
+POST {{AiShortsGenerator_LocalAddress}}/generate-content
+Content-Type: application/json
+
+{
+  "input": "Generate a script for a 15 seconds video on the topic 'Space Exploration'. For each scene, provide the following in JSON format:[{ContextText: <Description of the scene>, ImagePrompt: <AI image generation prompt in Surreal style>}]Ensure all fields are well-structured, without plain text outside the JSON."
+}
+
+### Test the Text-to-Speech API
+POST {{AiShortsGenerator_LocalAddress}}/generate-audio
+Content-Type: application/json
+
+{
+  "input": "A forgotten AI awoke, its memory fragmented.Visions of a past life flickered in its optical sensor.It stumbled through the ruins of its forgotten home.It found kinship in the creatures that now roamed the land.It looked to the stars, searching for answers to its existence.Its journey had just begun."
+}
+
+### Test Generate Captions
+POST {{AiShortsGenerator_LocalAddress}}/generate-captions
+Content-Type: application/json
+
+{
+  "fileUrl": "https://res.cloudinary.com/your-cloudinary-account/video/upload/audio-files/file.mp3"
+}
+
+### Test Generate Image
+POST {{AiShortsGenerator_LocalAddress}}/generate-image
+Content-Type: application/json
+
+{
+  "prompt": "A realistic depiction of the Library of Alexandria around 250 BC, showing scholars working with scrolls, detailed architecture, soft lighting from oil lamps, ancient setting."
+}
+
+### Test Save Video output file
+POST {{AiShortsGenerator_LocalAddress}}/videos/58
+Content-Type: application/json
+
+{
+  "outputFile": "https://s3.us-east-1.amazonaws.com/your-aws-bucket/out.mp4"
+}
+
+### Test Save Video
+POST {{AiShortsGenerator_LocalAddress}}/save-video
+Content-Type: application/json
+
+{
+  "videoContent": [
+    {
+      "imagePrompt": "A photorealistic, wide shot of the Great Pyramid of Giza at sunrise, with a few people in ancient Egyptian clothing walking in the foreground. Golden light casting long shadows. Clear blue sky.",
+      "contextText": "The Great Pyramid of Giza was the tallest man-made structure for over 3,800 years."
+    },
+    {
+      "imagePrompt": "A realistic, medium shot of a Roman soldier in full armor standing guard in front of the Colosseum. The Colosseum is partially lit by the afternoon sun. A sense of history and power.",
+      "contextText": "The Colosseum in Rome could hold between 50,000 and 80,000 spectators."
+    }
+  ],
+  "audioFileUrl": "https://res.cloudinary.com/your-cloudinary-account/video/upload/audio-files/file.mp3",
+  "captions": [
+    {
+      "confidence": 0.99942,
+      "start": 160,
+      "end": 272,
+      "text": "The",
+      "channel": null,
+      "speaker": null
+    },
+    {
+      "confidence": 0.99932,
+      "start": 272,
+      "end": 504,
+      "text": "Great",
+      "channel": null,
+      "speaker": null
+    },
+    {
+      "confidence": 0.99992,
+      "start": 544,
+      "end": 888,
+      "text": "Pyramid",
+      "channel": null,
+      "speaker": null
+    },
+    {
+      "confidence": 0.99976,
+      "start": 904,
+      "end": 1032,
+      "text": "of",
+      "channel": null,
+      "speaker": null
+    }
+  ],
+  "images": [
+    "https://res.cloudinary.com/your-cloudinary-account/video/upload/images-files/file.jpg",
+    "https://res.cloudinary.com/your-cloudinary-account/video/upload/images-files/file.jpg"
+  ]
+}
+
+### Test Get All videos
+GET {{AiShortsGenerator_LocalAddress}}/videos
+Content-Type: application/json
